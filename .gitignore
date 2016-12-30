@@ -8,6 +8,7 @@ _SpecRunner.html
 
 # Dynamically generated files and folders
 .sass-cache/
+app/assets
 reports/
 dist
 app/templates.js

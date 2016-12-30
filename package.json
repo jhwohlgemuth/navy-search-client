@@ -84,6 +84,7 @@
         "time-grunt": "^1.1.0"
     },
     "scripts": {
+        "symlink": "ln -s `pwd`/assets `pwd`/app/assets",
         "test": "grunt test",
         "test:ci": "npm test && grunt coveralls",
         "preversion": "npm test",
@@ -94,7 +95,7 @@
         "predemo": "npm run build",
         "demo": "grunt open:demo express:demo",
         "prestart": "nohup npm run rest-api &",
-        "start": "grunt serve",
+        "start": "npm run symlink && grunt serve",
         "predeploy": "npm run build",
         "deploy": "cp -a dist/. ../navy-search/web/client/."
     },
