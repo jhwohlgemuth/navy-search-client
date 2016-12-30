@@ -1,0 +1,15 @@
+nohup.out
+node_modules/
+.yo-rc.json
+
+#Grunt template files
+.grunt/
+_SpecRunner.html
+
+# Dynamically generated files and folders
+.sass-cache/
+reports/
+dist
+app/templates.js
+app/style.css
+app/style.css.map
