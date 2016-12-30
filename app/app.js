@@ -25,7 +25,7 @@ define(function(require, exports, module) {
     **/
     var ApplicationModel = Backbone.Model.extend({
         defaults: {
-            name: 'omaha-project'
+            name: 'Navy Search'
         }
     });
     /**
