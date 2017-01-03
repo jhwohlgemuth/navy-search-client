@@ -1,12 +1,14 @@
 @import "reset";
-
-html {
-    background:  url("assets/images/rail_gun.gif") no-repeat center center fixed;
-    background-size: cover;
-}
+@import "components/button";
 
 body {
-    height: 100%;
+    height: 150vh;
+}
+
+#main {
+    background:  url("assets/images/rail_gun.gif") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
 }
 
 /*---
@@ -18,14 +20,13 @@ Styles for elements such as `<section>` could go in this section.
 
 */
 section {
-    line-height: 3em;
-    padding: 0 2em;
-    text-align: center;
-    transform: scale(1.0);
-    user-select: none;
+    position: relative;
 }
 footer {
+    background-color: white;
     bottom: 0;
+    box-sizing: border-box;
+    height: 50vh;
     padding: 1em 0;
     position: fixed;
     text-align: center;
@@ -54,30 +55,4 @@ a:visited {
 a:hover {
     background-color: red;
     color: white;
-}
-
-
-/*---
-title:   Buttons
-section: Input Controls
----
-
-The default button style is pictured below.
-
-```example:html
-<button>Hello World</button>
-```
-*/
-button {
-    background-color: blue;
-    border: none;
-    border-radius: 15px;
-    color: white;
-    padding: 1em;
-    transition: all 100ms;
-    text-transform: uppercase;
-}
-button:hover {
-    background-color: lighten(blue, 10);
-    cursor: pointer;
 }

@@ -11,7 +11,7 @@ define(function(require) {
     var Backbone = require('backbone');
     var WebApp   = require('app');
     var Example  = require('router');
-    var View     = require('views/example');
+    var Homepage = require('views/home');
 
     WebApp.on('before:start', function() {
         console.info(WebApp.model.get('name') + ' is starting...');
@@ -20,7 +20,7 @@ define(function(require) {
     WebApp.on('start', function() {
         Backbone.history.start();
         console.info(WebApp.model.get('name') + ' is started!');
-        WebApp.getRegion().show(new View());
+        WebApp.getRegion().show(new Homepage());
     });
     if (typeof(define) === 'undefined') {
         //Not AMD ==> Bundled with Browserify

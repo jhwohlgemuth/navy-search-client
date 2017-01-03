@@ -1,0 +1,34 @@
+/*---
+title:   Buttons
+section: Input Controls
+---
+
+The default button style is pictured below.
+
+```example:html
+<button>Hello World</button>
+```
+*/
+button {
+    background-color: transparent;
+    border: solid 2px white;
+    color: white;
+    padding: 5px 20px;
+    position: absolute;
+    transition: all 100ms;
+    text-transform: uppercase;
+}
+button:hover {
+    background-color: blue;
+    border-color: blue;
+    cursor: pointer;
+}
+.about-btn {
+    bottom: 0;
+    margin-bottom: 10px;
+    position: absolute;
+}
+.full-width {
+    width: 100%;
+    text-align: center;
+}
