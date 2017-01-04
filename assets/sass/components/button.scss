@@ -9,6 +9,9 @@ The default button style is pictured below.
 <button>Hello World</button>
 ```
 */
+$navy_blue: #000048;
+$navy_gold: #B4A87E;
+
 button {
     background-color: transparent;
     border: solid 2px white;
@@ -23,8 +26,8 @@ button {
     user-select: none;
 }
 button:hover {
-    background-color: blue;
-    border-color: blue;
+    background-color: $navy_blue;
+    border-color: $navy_blue;
     cursor: pointer;
 }
 .about-btn {

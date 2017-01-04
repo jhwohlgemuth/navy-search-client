@@ -32,7 +32,7 @@ define(function(require, exports, module) {
         onRender: function() {
 
         },
-        onClickAbout: function(e) {
+        onClickAbout: function() {
             this.ui.main.toggleClass('show-about');
             this.ui.aboutButton.toggleClass('active-btn');
         }

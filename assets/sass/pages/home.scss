@@ -1,0 +1,22 @@
+/*---
+title:   Pages
+section: Home
+---
+
+Home view elements
+```
+*/
+.navy-search {
+    position: relative;
+    top: 40vh;
+    input {
+        border: none;
+        border-radius: 0;
+        font-size: 1.2rem;
+        transition: box-shadow 0.3s, border 0.3s;
+        outline: none;
+        user-select: text;
+        min-width: 250px;
+        width: 70vw;
+    }
+}

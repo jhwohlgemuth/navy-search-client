@@ -2,11 +2,10 @@
 @import "common";
 @import "components/input";
 @import "components/button";
-
+@import "pages/home";
 
 /*---
-title:   Structure
-section: Base CSS
+title:   Main
 ---
 
 Styles for elements such as `<section>` could go in this section.
@@ -39,9 +38,5 @@ footer {
     width: 100vw;
     &.show-about {
         top: -50vh;
-    }
-    .search.text-input-wrapper {
-        position: relative;
-        top: 40vh;
     }
 }
