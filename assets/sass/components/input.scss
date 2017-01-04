@@ -1,0 +1,23 @@
+/*---
+title:   Input
+section: Input Controls
+---
+
+Various input elements
+```
+*/
+input[type=text] {
+    appearance: none;
+    font-family: "Courier New", Courier, monospace;
+    padding: 1em;
+}
+.navy-search-input {
+    border: solid 2px transparent;
+    transition: box-shadow 0.3s, border 0.3s;
+    min-width: 450px;
+    outline: none;
+    width: 30vw;
+    &:focus {
+        border: solid 2px gold;
+    }
+}

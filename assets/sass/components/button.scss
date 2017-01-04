@@ -13,10 +13,14 @@ button {
     background-color: transparent;
     border: solid 2px white;
     color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    outline: none;
     padding: 5px 20px;
     position: absolute;
     transition: all 100ms;
-    text-transform: uppercase;
+    user-select: none;
 }
 button:hover {
     background-color: blue;
@@ -25,10 +29,11 @@ button:hover {
 }
 .about-btn {
     bottom: 0;
+    margin: 0 auto;
     margin-bottom: 10px;
-    position: absolute;
+    position: relative;
+    text-transform: uppercase;
 }
-.full-width {
-    width: 100%;
-    text-align: center;
+.active-btn {
+    @extend button:hover;
 }

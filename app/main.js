@@ -20,7 +20,7 @@ define(function(require) {
     WebApp.on('start', function() {
         Backbone.history.start();
         console.info(WebApp.model.get('name') + ' is started!');
-        WebApp.getRegion().show(new Homepage());
+        WebApp.showView(new Homepage(), {replaceElement: true});
     });
     if (typeof(define) === 'undefined') {
         //Not AMD ==> Bundled with Browserify

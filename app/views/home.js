@@ -21,8 +21,20 @@ define(function(require, exports, module) {
         //view code goes here
         template: JST.home,
         model: new Data.Model(),
+        ui: {
+            main: '#main',
+            aboutButton: '.about-btn'
+        },
+        events: {
+            'click .about-btn': 'onClickAbout',
+            'touchstart .about-btn': 'onClickAbout'
+        },
         onRender: function() {
-            
+
+        },
+        onClickAbout: function(e) {
+            this.ui.main.toggleClass('show-about');
+            this.ui.aboutButton.toggleClass('active-btn');
         }
     });
 

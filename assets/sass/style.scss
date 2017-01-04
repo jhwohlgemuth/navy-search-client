@@ -1,15 +1,8 @@
 @import "reset";
+@import "common";
+@import "components/input";
 @import "components/button";
 
-body {
-    height: 150vh;
-}
-
-#main {
-    background:  url("assets/images/rail_gun.gif") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-}
 
 /*---
 title:   Structure
@@ -19,6 +12,10 @@ section: Base CSS
 Styles for elements such as `<section>` could go in this section.
 
 */
+body {
+    height: 150vh;
+    overflow-y: hidden;
+}
 section {
     position: relative;
 }
@@ -32,27 +29,19 @@ footer {
     text-align: center;
     width: 100%;
 }
-
-/*---
-title:   Links
-section: Base CSS
----
-
-```example:html
-<a href="#">This is a sample link</a>
-<a href="#">This is another sample link</a>
-<a href="#">This is a third sample link</a>
-```
-
-*/
-a,
-a:visited {
-    color: black;
-    padding: 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-a:hover {
-    background-color: red;
-    color: white;
+#main {
+    background:  url("assets/images/sonic_boom.gif") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    transition: top 200ms;
+    width: 100vw;
+    &.show-about {
+        top: -50vh;
+    }
+    .search.text-input-wrapper {
+        position: relative;
+        top: 40vh;
+    }
 }

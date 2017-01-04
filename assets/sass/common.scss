@@ -1,0 +1,22 @@
+/*---
+title:   Common
+section: Base CSS
+---
+
+Utility styles that are reused frequently and provide human-readable classes.
+
+*/
+.full-width {
+    width: 100%;
+}
+.bottom {
+    bottom: 0;
+    position: absolute;
+}
+.centered {
+    text-align: center;
+}
+.no-user-select {
+    outline: none;
+    user-select: none;
+}
