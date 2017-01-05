@@ -21,6 +21,7 @@ button {
     font-size: 1rem;
     outline: none;
     padding: 5px 20px;
+    text-transform: uppercase;
     transition: all 100ms;
     user-select: none;
 }
@@ -34,7 +35,6 @@ button:hover {
     margin: 0 auto;
     margin-bottom: 10px;
     position: relative;
-    text-transform: uppercase;
 }
 .submit-btn {
     display: block;
@@ -43,7 +43,14 @@ button:hover {
     margin: 20px auto;
     padding-top: 10px;
     padding-bottom: 10px;
-    text-transform: uppercase;
+    width: calc( 12rem );
+}
+input:required + .submit-btn {
+    margin: 20px calc( 50% - 6rem );
+    transform: translateZ(0px);
+}
+input:required:invalid + .submit-btn {
+    margin-left: -100vw;
 }
 
 .active-btn {

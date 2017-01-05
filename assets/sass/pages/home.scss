@@ -24,7 +24,4 @@ Home view elements
         box-shadow: none;
         outline: none;
     }
-    input:required:invalid + button {
-        display: none;
-    }
 }
