@@ -21,7 +21,6 @@ button {
     font-size: 1rem;
     outline: none;
     padding: 5px 20px;
-    position: absolute;
     transition: all 100ms;
     user-select: none;
 }
@@ -37,6 +36,16 @@ button:hover {
     position: relative;
     text-transform: uppercase;
 }
+.submit-btn {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
 .active-btn {
     @extend button:hover;
 }
