@@ -22,8 +22,11 @@ button {
     outline: none;
     padding: 5px 20px;
     text-transform: uppercase;
-    transition: all 100ms;
+    transition: all 100ms ease-in-out;
     user-select: none;
+    &.processing {
+        @extend button:hover;
+    }
 }
 button:hover {
     background-color: $navy_blue;
@@ -52,7 +55,6 @@ input:required + .submit-btn {
 input:required:invalid + .submit-btn {
     margin-left: -100vw;
 }
-
 .active-btn {
     @extend button:hover;
 }

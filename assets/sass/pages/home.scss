@@ -7,16 +7,18 @@ Home view elements
 ```
 */
 .navy-search {
+    overflow: hidden;
     position: relative;
     top: 35vh;
     input {
         border: none;
         border-radius: 0;
         font-size: 1.2rem;
-        transition: box-shadow 0.3s, border 0.3s;
         outline: none;
         user-select: text;
         min-width: 250px;
+        transform: translateZ(0px);
+        transition: all 100ms ease-in-out;
         width: 70vw;
     }
     input:required:invalid {
