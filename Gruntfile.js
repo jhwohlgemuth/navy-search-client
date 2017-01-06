@@ -428,7 +428,7 @@ module.exports = function (grunt) {
                             examples: {
                                 css: [
                                     '.././app/style.css',
-                                    '.././assets/css/style.css'
+                                    // '.././assets/css/style.css'
                                 ]
                             }
                         })]

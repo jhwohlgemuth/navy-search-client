@@ -3,24 +3,23 @@ title:   Buttons
 section: Input Controls
 ---
 
-Submit button
+In general, all buttons are "ghost buttons" with square corners.
 
+Submit button
 ```example:html
-<div class="full-width centered" style="background-color: #EEE; padding: 20px 0;">
+<div class="full-width centered" style="background-color: #333; padding: 20px 0;">
     <button class="submit-btn">go navy</button>
 </div>
 ```
 
 About button
-
 ```example:html
-<div class="full-width centered control-wrapper" style="background-color: #EEE; padding: 20px 0;">
+<div class="full-width centered control-wrapper" style="background-color: #333; padding: 20px 0;">
     <button class="about-btn">about</button>
 </div>
 ```
 */
 $navy_blue: #000048;
-$navy_gold: #B4A87E;
 
 button {
     background-color: transparent;

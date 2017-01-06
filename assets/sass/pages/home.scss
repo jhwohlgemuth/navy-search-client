@@ -27,3 +27,15 @@ Home view elements
         outline: none;
     }
 }
+#main {
+    background:  url("assets/images/sonic_boom.gif") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    transition: top 200ms;
+    width: 100vw;
+    &.show-about {
+        top: -50vh;
+    }
+}
