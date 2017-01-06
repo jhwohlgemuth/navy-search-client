@@ -1,39 +1,7 @@
 navy-search-client
 ==================
-> Super cool project
+> Search for those that Serve
 
-Folder Structure
-----------------
-    +- app
-    |   +- models
-    |   +- views
-    |   +- controllers
-    |   +- plugins
-    |   +- helpers
-    |   +- shims
-    |   |- app.js
-    |   |- router.js
-    |   |- main.js
-    |   |- config.js
-    |   \- index.html
-    +- assets
-    |   +- fonts
-    |   +- images
-    |   +- templates
-    |   +- sass
-    |       |- reset.scss
-    |       \- style.scss
-    +- config
-    |   |- .csslintrc
-    |   |- .eslintrc.js
-    |   |- default.js
-    |   \- karma.conf.js
-    +- tasks
-    |   \- webapp.js
-    +- test
-    |   +- data
-    |   +- jasmine
-    |       +- specs
-    |   \- config.js
-    |- GruntFile.js
-    \- package.json
+[![Build Status](https://travis-ci.org/jhwohlgemuth/navy-search-client.svg?branch=master)](https://travis-ci.org/jhwohlgemuth/navy-search-client)
+[![Coverage Status](https://coveralls.io/repos/github/jhwohlgemuth/navy-search-client/badge.svg?branch=master)](https://coveralls.io/github/jhwohlgemuth/navy-search-client?branch=master) 
+[![NSP Status](https://nodesecurity.io/orgs/wohlgemuth-tech-foundation/projects/a71a10a4-45e9-4669-8dc0-d660fbe0bbe3/badge)](https://nodesecurity.io/orgs/wohlgemuth-tech-foundation/projects/a71a10a4-45e9-4669-8dc0-d660fbe0bbe3)

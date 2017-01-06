@@ -7,6 +7,7 @@
 define(function(require, exports, module) {
     'use strict';
 
+    var $    = require('jquery');
     var Mn   = require('backbone.marionette');
     var JST  = require('templates');
     var Data = require('models/Data');
@@ -37,7 +38,7 @@ define(function(require, exports, module) {
             var RETURN_KEY_CODE = 13;
             $(document).keypress(function(e) {
                 var key = e.which || e.keyCode;
-                if (key === RETURN_KEY_CODE && (view.ui.searchInput.val().length > 1)) {
+                if (key === RETURN_KEY_CODE && (view.ui.searchInput.val().length > 0)) {
                     view.triggerMethod('click:submit');
                 }
             });
@@ -45,14 +46,14 @@ define(function(require, exports, module) {
         onRender: function() {
 
         },
+        onClickSubmit: function() {
+            this.ui.searchInput.toggleClass('fly-out--right').blur();
+            this.ui.submitButton.toggleClass('processing');
+            this.ui.aboutButton.toggle();
+        },
         onClickAbout: function() {
             this.ui.main.toggleClass('show-about');
             this.ui.aboutButton.toggleClass('active-btn');
-        },
-        onClickSubmit: function() {
-            this.ui.searchInput.toggleClass('fly-out--right');
-            this.ui.submitButton.toggleClass('processing');
-            this.ui.aboutButton.toggle();
         }
     });
 
