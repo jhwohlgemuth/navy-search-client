@@ -7,6 +7,15 @@ define(function(require) {
 
     var $ = require('jquery');
 
+    // $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+    //     options.crossDomain ={
+    //         crossDomain: true
+    //     };
+    //     options.xhrFields = {
+    //         withCredentials: true
+    //     };
+    // });
+
     $.fn.scrollbarWidth = function() {
         var outer = document.createElement('div');
         outer.style.visibility = 'hidden';

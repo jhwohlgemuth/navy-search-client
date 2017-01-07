@@ -7,10 +7,11 @@
 define(function(require, exports, module) {
     'use strict';
 
-    var $    = require('jquery');
-    var Mn   = require('backbone.marionette');
-    var JST  = require('templates');
-    var Data = require('models/Data');
+    var $       = require('jquery');
+    var Mn      = require('backbone.marionette');
+    var JST     = require('templates');
+    var Data    = require('models/Data');
+    var Message = require('models/Message');
 
     /**
      * @name HomeView
@@ -19,7 +20,6 @@ define(function(require, exports, module) {
      * @extends Marionette.View
     **/
     var HomeView = Mn.View.extend({
-        //view code goes here
         template: JST.home,
         model: new Data.Model(),
         ui: {
@@ -43,13 +43,31 @@ define(function(require, exports, module) {
                 }
             });
         },
-        onRender: function() {
-
-        },
         onClickSubmit: function() {
             this.ui.searchInput.toggleClass('fly-out--right').blur();
             this.ui.submitButton.toggleClass('processing');
             this.ui.aboutButton.toggle();
+            var results = new Message.Collection();
+            var options = {
+                crossDomain: true
+            };
+            var data = {
+                q: this.ui.searchInput.val()
+            };
+            results
+                .fetch({
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        console.log('Boot!');
+                    },
+                    error: function(err) {
+                        console.log('dumb');
+                    }
+                })
+                .then(function(results) {
+                    console.log(results);
+                    console.log('done');
+                });
         },
         onClickAbout: function() {
             this.ui.main.toggleClass('show-about');
