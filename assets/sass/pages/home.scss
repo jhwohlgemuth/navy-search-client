@@ -26,9 +26,43 @@ Home view elements
         box-shadow: none;
         outline: none;
     }
+    .control-wrapper {
+        height: 3.2rem;
+    }
+    .submit-btn {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        height: 3.2rem;
+        line-height: 3.2rem;
+        padding: 0;
+        width: 12rem;
+        &.processing {
+            @extend button:hover;
+            color: $navy_blue;
+            &:before {
+                content: ' ';
+                display: block;
+                background-image: url('assets/images/ripple.gif');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    input:required + .control-wrapper > .submit-btn {
+        margin: 20px calc( 50% - 6rem );
+        transform: translateZ(0px);
+    }
+    input:required:invalid + .control-wrapper > .submit-btn {
+        margin-left: -100vw;
+    }
 }
 #main {
-    background:  url("assets/images/sonic_boom.gif") no-repeat center center fixed;
+    background: url("assets/images/sonic_boom.gif") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     position: absolute;
@@ -38,4 +72,10 @@ Home view elements
     &.show-about {
         top: -50vh;
     }
+}
+.about-btn {
+    bottom: 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    position: relative;
 }

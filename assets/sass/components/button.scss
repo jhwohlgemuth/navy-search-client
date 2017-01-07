@@ -20,6 +20,7 @@ About button
 ```
 */
 $navy_blue: #000048;
+$navy_gold: #B4A87E;
 
 button {
     background-color: transparent;
@@ -33,36 +34,11 @@ button {
     text-transform: uppercase;
     transition: all 100ms ease-in-out;
     user-select: none;
-    &.processing {
-        @extend button:hover;
-    }
 }
 button:hover {
     background-color: $navy_blue;
     border-color: $navy_blue;
     cursor: pointer;
-}
-.about-btn {
-    bottom: 0;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    position: relative;
-}
-.submit-btn {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    margin: 20px auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: calc( 12rem );
-}
-input:required + .submit-btn {
-    margin: 20px calc( 50% - 6rem );
-    transform: translateZ(0px);
-}
-input:required:invalid + .submit-btn {
-    margin-left: -100vw;
 }
 .active-btn {
     @extend button:hover;
