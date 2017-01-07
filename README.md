@@ -6,4 +6,5 @@ navy-search-client
 [![Coverage Status](https://coveralls.io/repos/github/jhwohlgemuth/navy-search-client/badge.svg?branch=master)](https://coveralls.io/github/jhwohlgemuth/navy-search-client?branch=master)
 [![bitHound Overall Score](https://www.bithound.io/github/jhwohlgemuth/navy-search-client/badges/score.svg)](https://www.bithound.io/github/jhwohlgemuth/navy-search-client)
 [![bitHound Dependencies](https://www.bithound.io/github/jhwohlgemuth/navy-search-client/badges/dependencies.svg)](https://www.bithound.io/github/jhwohlgemuth/navy-search-client/master/dependencies/npm)
+[![Known Vulnerabilities](https://snyk.io/test/github/jhwohlgemuth/navy-search-client/badge.svg)](https://snyk.io/test/github/jhwohlgemuth/navy-search-client) 
 [![NSP Status](https://nodesecurity.io/orgs/wohlgemuth-tech-foundation/projects/a71a10a4-45e9-4669-8dc0-d660fbe0bbe3/badge)](https://nodesecurity.io/orgs/wohlgemuth-tech-foundation/projects/a71a10a4-45e9-4669-8dc0-d660fbe0bbe3)
