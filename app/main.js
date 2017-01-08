@@ -14,15 +14,15 @@ define(function(require) {
     var Homepage = require('views/home');
 
     WebApp.on('before:start', function() {
-        console.info(WebApp.model.get('name') + ' is starting...');
+        WebApp.info('Starting...');
         WebApp.router = new Example.Router();
     });
     WebApp.on('start', function() {
         Backbone.history.start();
-        console.info(WebApp.model.get('name') + ' is started!');
+        WebApp.info('Started!');
         WebApp.showView(new Homepage(), {replaceElement: true});
     });
-    if (typeof(define) === 'undefined') {
+    if (typeof (define) === 'undefined') {
         //Not AMD ==> Bundled with Browserify
         document.addEventListener('DOMContentLoaded', function() {
             WebApp.start();

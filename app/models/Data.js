@@ -32,6 +32,6 @@ define(function(require, exports) {
         model: DataModel
     });
 
-    exports.Model      = DataModel;
+    exports.Model = DataModel;
     exports.Collection = DataCollection;
 });

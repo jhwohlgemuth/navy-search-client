@@ -50,6 +50,6 @@ define(function(require, exports) {
         url: 'https://www.navysearch.org/api/v1.0/messages/search?q=wohlgemuth'
     });
 
-    exports.Model      = MessageModel;
+    exports.Model = MessageModel;
     exports.Collection = MessageCollection;
 });

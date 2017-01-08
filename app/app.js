@@ -9,8 +9,10 @@
 define(function(require, exports, module) {
     'use strict';
 
+    var _          = require('underscore');
     var Backbone   = require('backbone');
     var Marionette = require('backbone.marionette');
+    var logging    = require('./plugins/radio.logging');
 
     require('./shims/marionette.radio.shim');
     require('./helpers/handlebars.helpers');
@@ -38,6 +40,8 @@ define(function(require, exports, module) {
         region: 'body',
         model: new ApplicationModel()
     });
+    var WebApp = new Application();
+    _.extend(WebApp, logging);
 
-    module.exports = new Application();
+    module.exports = WebApp;
 });

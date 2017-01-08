@@ -11,7 +11,6 @@ define(function(require, exports, module) {
     var Mn      = require('backbone.marionette');
     var JST     = require('templates');
     var Data    = require('models/Data');
-    var Message = require('models/Message');
 
     /**
      * @name HomeView
@@ -47,27 +46,15 @@ define(function(require, exports, module) {
             this.ui.searchInput.toggleClass('fly-out--right').blur();
             this.ui.submitButton.toggleClass('processing');
             this.ui.aboutButton.toggle();
-            var results = new Message.Collection();
-            var options = {
-                crossDomain: true
-            };
-            var data = {
-                q: this.ui.searchInput.val()
-            };
-            results
-                .fetch({
-                    dataType: 'jsonp',
-                    success: function(data) {
-                        console.log('Boot!');
-                    },
-                    error: function(err) {
-                        console.log('dumb');
-                    }
-                })
-                .then(function(results) {
-                    console.log(results);
-                    console.log('done');
-                });
+            // var options = {
+            //     method: 'GET',
+            //     data: {q: this.ui.searchInput.val()},
+            //     dataType: 'json',
+            //     url: '/api/v1.0/messages/search'
+            // };
+            // $.ajax(options).done(function(data, status) {
+            //
+            // });
         },
         onClickAbout: function() {
             this.ui.main.toggleClass('show-about');
