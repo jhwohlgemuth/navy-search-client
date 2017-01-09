@@ -53,7 +53,7 @@ define(function(require, exports, module) {
             ui.searchInput.toggleClass('fly-out--right').blur();
             ui.submitButton.toggleClass('processing');
             ui.aboutButton.toggle();
-            var searchString = ui.searchInput.val()
+            var searchString = ui.searchInput.val();
             view
                 .getSearchResults(searchString)
                 .then(function(results) {
