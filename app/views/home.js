@@ -7,10 +7,14 @@
 define(function(require, exports, module) {
     'use strict';
 
-    var $       = require('jquery');
-    var Mn      = require('backbone.marionette');
-    var JST     = require('templates');
-    var Data    = require('models/Data');
+    var $      = require('jquery');
+    var _      = require('underscore');
+    var Mn     = require('backbone.marionette');
+    var JST    = require('templates');
+    var WebApp = require('app').model;
+    var Data   = require('models/Data');
+
+    var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
 
     /**
      * @name HomeView
@@ -39,26 +43,35 @@ define(function(require, exports, module) {
                 var key = e.which || e.keyCode;
                 if (key === RETURN_KEY_CODE && (view.ui.searchInput.val().length > 0)) {
                     view.triggerMethod('click:submit');
+                    $(document).off('keypress');
                 }
             });
         },
         onClickSubmit: function() {
-            this.ui.searchInput.toggleClass('fly-out--right').blur();
-            this.ui.submitButton.toggleClass('processing');
-            this.ui.aboutButton.toggle();
-            // var options = {
-            //     method: 'GET',
-            //     data: {q: this.ui.searchInput.val()},
-            //     dataType: 'json',
-            //     url: '/api/v1.0/messages/search'
-            // };
-            // $.ajax(options).done(function(data, status) {
-            //     console.log(data);
-            // });
+            var view = this;
+            var ui = view.ui;
+            ui.searchInput.toggleClass('fly-out--right').blur();
+            ui.submitButton.toggleClass('processing');
+            ui.aboutButton.toggle();
+            var searchString = ui.searchInput.val()
+            view
+                .getSearchResults(searchString)
+                .then(function(results) {
+                    console.log(results);
+                });
         },
         onClickAbout: function() {
-            this.ui.main.toggleClass('show-about');
-            this.ui.aboutButton.toggleClass('active-btn');
+            var ui = this.ui;
+            ui.main.toggleClass('show-about');
+            ui.aboutButton.toggleClass('active-btn');
+        },
+        getSearchResults: function(str, ajaxOptions) {
+            var defaults = {
+                data: {q: str},
+                dataType: 'json',
+                url: SEARCH_URL
+            };
+            return $.get(_.extend(defaults, ajaxOptions));
         }
     });
 

@@ -27,7 +27,8 @@ define(function(require, exports, module) {
     **/
     var ApplicationModel = Backbone.Model.extend({
         defaults: {
-            name: 'Navy Search'
+            name: 'Navy Search',
+            version: 'v1.0'
         }
     });
     /**
