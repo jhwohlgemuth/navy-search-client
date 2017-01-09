@@ -93,7 +93,7 @@ module.exports = function (grunt) {
         express: {
             main: {
                 options: {
-                    bases: [__dirname],
+                    bases: [__dirname, __dirname + '/app/api/v1.0/messages'],
                     port: '<%= ports.server %>',
                     hostname: '0.0.0.0',
                     livereload: '<%= ports.livereload %>'

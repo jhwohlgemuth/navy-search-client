@@ -53,7 +53,7 @@ define(function(require, exports, module) {
             //     url: '/api/v1.0/messages/search'
             // };
             // $.ajax(options).done(function(data, status) {
-            //
+            //     console.log(data);
             // });
         },
         onClickAbout: function() {
