@@ -21,6 +21,7 @@ define(function(require, exports) {
      * @prop {string} defaults.num
      * @prop {string} defaults.url
      * @prop {string} defaults.text
+     * @prop {number} defaults.score
     **/
     var MessageModel = Backbone.Model.extend({
         defaults: {
@@ -30,7 +31,8 @@ define(function(require, exports) {
             year: '',
             num: '',
             url: '',
-            text: ''
+            text: '',
+            score: 0
         },
         getCurrentYear: function(formatString) {
             var today = new Date();
@@ -46,8 +48,7 @@ define(function(require, exports) {
      * @prop {MessageModel} model
     **/
     var MessageCollection = Backbone.Collection.extend({
-        model: MessageModel,
-        url: 'https://www.navysearch.org/api/v1.0/messages/search?q=wohlgemuth'
+        model: MessageModel
     });
 
     exports.Model = MessageModel;

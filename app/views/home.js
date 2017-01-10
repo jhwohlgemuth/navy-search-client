@@ -7,12 +7,13 @@
 define(function(require, exports, module) {
     'use strict';
 
-    var $      = require('jquery');
-    var _      = require('underscore');
-    var Mn     = require('backbone.marionette');
-    var JST    = require('templates');
-    var WebApp = require('app').model;
-    var Data   = require('models/Data');
+    var $       = require('jquery');
+    var _       = require('underscore');
+    var Mn      = require('backbone.marionette');
+    var JST     = require('templates');
+    var WebApp  = require('app').model;
+    var Data    = require('models/Data');
+    // var Message = require('models/Message');
 
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
 
@@ -36,6 +37,9 @@ define(function(require, exports, module) {
             'touchstart .about-btn': 'onClickAbout',
             'click .submit-btn': 'onClickSubmit'
         },
+        regions: {
+            results: '.search-results'
+        },
         initialize: function() {
             var view = this;
             var RETURN_KEY_CODE = 13;
@@ -54,10 +58,11 @@ define(function(require, exports, module) {
                 ui.searchInput.toggleClass('fly-out--right').blur();
                 ui.submitButton.toggleClass('processing');
                 ui.aboutButton.toggle();
-                var searchString = ui.searchInput.val();
-                view.getSearchResults(searchString).then(function(results) {
-                    // console.log(results);
-                });
+                // var searchString = ui.searchInput.val();
+                // view.getSearchResults(searchString).then(function(data) {
+                //     // console.log(results);
+                //     console.log(view.getRegion('results').$el);
+                // });
             }
         },
         onClickAbout: function() {
