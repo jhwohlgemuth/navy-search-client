@@ -27,31 +27,16 @@ Home view elements
         outline: none;
     }
     .control-wrapper {
-        height: 3.2rem;
+        height: 3.3rem;
     }
     .submit-btn {
         display: block;
         font-size: 1.5rem;
         font-weight: bolder;
-        height: 3.2rem;
-        line-height: 3.2rem;
+        height: 3.3rem;
+        line-height: 3.0rem;
         padding: 0;
         width: 12rem;
-        &.processing {
-            @extend button:hover;
-            color: $navy_blue;
-            &:before {
-                content: ' ';
-                display: block;
-                background-image: url('assets/images/ripple.gif');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                position: absolute;
-                height: 100%;
-                width: 100%;
-            }
-        }
     }
     input:required + .control-wrapper > .submit-btn {
         margin: 20px calc( 50% - 6rem );

@@ -34,11 +34,28 @@ button {
     text-transform: uppercase;
     transition: all 100ms ease-in-out;
     user-select: none;
-}
-button:hover {
-    background-color: $navy_blue;
-    border-color: $navy_blue;
-    cursor: pointer;
+    &:hover {
+        background-color: $navy_blue;
+        border-color: $navy_blue;
+        cursor: pointer;
+    }
+    &.processing {
+        @extend button:hover;
+        color: $navy_blue;
+        cursor: progress;
+        &:before {
+            content: ' ';
+            cursor: progress;
+            display: block;
+            background-image: url('assets/images/ripple.gif');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 .active-btn {
     @extend button:hover;
