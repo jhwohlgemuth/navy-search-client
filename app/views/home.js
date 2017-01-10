@@ -50,15 +50,15 @@ define(function(require, exports, module) {
         onClickSubmit: function() {
             var view = this;
             var ui = view.ui;
-            ui.searchInput.toggleClass('fly-out--right').blur();
-            ui.submitButton.toggleClass('processing');
-            ui.aboutButton.toggle();
-            var searchString = ui.searchInput.val();
-            view
-                .getSearchResults(searchString)
-                .then(function(results) {
-                    console.log(results);
+            if (!ui.submitButton.hasClass('processing')) {
+                ui.searchInput.toggleClass('fly-out--right').blur();
+                ui.submitButton.toggleClass('processing');
+                ui.aboutButton.toggle();
+                var searchString = ui.searchInput.val();
+                view.getSearchResults(searchString).then(function(results) {
+                    // console.log(results);
                 });
+            }
         },
         onClickAbout: function() {
             var ui = this.ui;
