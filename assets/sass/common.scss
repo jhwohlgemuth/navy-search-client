@@ -7,7 +7,12 @@ Utility styles that are reused frequently and provide human-readable classes.
 
 */
 .full-width {
+    box-sizing: border-box;
     width: 100%;
+}
+.top {
+    top: 0;
+    position: absolute;
 }
 .bottom {
     bottom: 0;
@@ -20,6 +25,13 @@ Utility styles that are reused frequently and provide human-readable classes.
     outline: none;
     user-select: none;
 }
+.animated {
+    transition: all 100ms ease-in-out;
+    transform: translateZ(0px);
+}
+.fly-out--left {
+    margin-left: -110vw;
+}
 .fly-out--right {
-    margin-left: 100vw;
+    margin-left: 110vw;
 }

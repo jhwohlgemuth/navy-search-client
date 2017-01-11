@@ -8,6 +8,11 @@ Various input elements
 */
 input[type=text] {
     appearance: textfield;
+    border: none;
+    border-radius: 0;
     font-family: "Courier New", Courier, monospace;
+    font-size: 1.2rem;
+    outline: none;
     padding: 1em;
+    user-select: text;
 }

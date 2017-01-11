@@ -13,7 +13,7 @@ define(function(require, exports, module) {
     var JST     = require('templates');
     var WebApp  = require('app').model;
     var Data    = require('models/Data');
-    // var Message = require('models/Message');
+    var Results = require('views/Results');
 
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
 
@@ -38,7 +38,7 @@ define(function(require, exports, module) {
             'click .submit-btn': 'onClickSubmit'
         },
         regions: {
-            results: '.search-results'
+            results: '.search-results > .items-container'
         },
         initialize: function() {
             var view = this;
@@ -56,13 +56,18 @@ define(function(require, exports, module) {
             var ui = view.ui;
             if (!ui.submitButton.hasClass('processing')) {
                 ui.searchInput.toggleClass('fly-out--right').blur();
-                ui.submitButton.toggleClass('processing');
+                ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
-                // var searchString = ui.searchInput.val();
-                // view.getSearchResults(searchString).then(function(data) {
-                //     // console.log(results);
-                //     console.log(view.getRegion('results').$el);
-                // });
+                view.getSearchResults(ui.searchInput.val())
+                    .then(function(items) {
+                        view.showChildView('results', new Results({collection: items}));
+                        ui.submitButton
+                            .hide()
+                            .removeClass('processing');
+                    })
+                    .catch(function(err) {
+                        WebApp.error(err);
+                    });
             }
         },
         onClickAbout: function() {
