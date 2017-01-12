@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Jason Wohlgemuth",
   "license": "MIT",
-  "description": "Slightly opinionated boilerplate and workflow for creating web applications",
+  "description": "Navy Search client built with Marionette.js",
   "main": "./app/main.js",
   "keywords": [],
   "repository": {
@@ -17,6 +17,7 @@
     "backbone": "^1.3.3",
     "backbone.marionette": "^3.1.0",
     "backbone.radio": "^2.0.0",
+    "bluebird": "^3.4.7",
     "handlebars": "^4.0.6",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
@@ -101,18 +102,11 @@
     "predeploy": "npm run build",
     "deploy": "cp -a dist/. ../navy-search/web/client/."
   },
-  "browser": {
-    "underscore": "./node_modules/underscore/underscore-min.js"
-  },
   "browserify": {
     "transform": [
       "deamdify",
-      "browserify-shim",
       "aliasify"
     ]
-  },
-  "browserify-shim": {
-    "underscore": "_"
   },
   "aliasify": {
     "aliases": {

@@ -9,15 +9,13 @@
 define(function(require, exports, module) {
     'use strict';
 
-    var _          = require('underscore');
+    var _          = require('lodash');
     var Backbone   = require('backbone');
     var Marionette = require('backbone.marionette');
     var logging    = require('./plugins/radio.logging');
 
-    require('./shims/marionette.radio.shim');
     require('./helpers/handlebars.helpers');
     require('./helpers/jquery.extensions');
-    require('./helpers/underscore.mixins');
 
     /**
      * @class ApplicationModel

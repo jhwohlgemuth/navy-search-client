@@ -8,7 +8,7 @@ define(function(require, exports, module) {
     'use strict';
 
     var $       = require('jquery');
-    var _       = require('underscore');
+    var _       = require('lodash');
     var Mn      = require('backbone.marionette');
     var JST     = require('templates');
     var WebApp  = require('app').model;

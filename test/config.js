@@ -17,16 +17,21 @@ requirejs.config({
         handlebars: '../node_modules/handlebars/dist/handlebars',
         //Backbone Libraries, Frameworks and Dependencies
         jquery:                '../node_modules/jquery/dist/jquery',
-        underscore:            '../node_modules/underscore/underscore',
+        lodash:                '../node_modules/lodash/lodash.min',
+        bluebird:              '../node_modules/bluebird/js/browser/bluebird.min',
         'backbone':            '../node_modules/backbone/backbone',
         'backbone.radio':      '../node_modules/backbone.radio/build/backbone.radio',
         'backbone.marionette': '../node_modules/backbone.marionette/lib/backbone.marionette',
         //Helpers and extensions
         'handlebars.helpers': './helpers/handlebars.helpers',
         'jquery.extensions':  './helpers/jquery.extensions',
-        'underscore.mixins':  './helpers/underscore.mixins',
         //Spies, Stubs, and fake servers (Jasmine is loaded by Karma plugin)
         sinon: '../node_modules/sinon/pkg/sinon'
+    },
+    map: {
+        '*': {
+            underscore: 'lodash'
+        }
     },
     // start test run, once Require.js is done
     callback: window.__karma__.start
