@@ -12,7 +12,7 @@ define(function(require, exports, module) {
     var Message = require('models/Message');
 
     var ChildView = Mn.View.extend({
-        className: 'item-wrapper',
+        className: 'animated fly-out--left full-width item-wrapper',
         model: new Message.Model(),
         template: JST.item
     });
@@ -29,7 +29,17 @@ define(function(require, exports, module) {
             var items = this.collection;
             if (!(items instanceof Message.Collection)) {
                 this.collection = new Message.Collection(items);
+                this.collection.each(function(model, index) {
+                    model.set('index', index);
+                });
             }
+        },
+        onChildviewAttach: function(child) {
+            var index = child.model.get('index');
+            console.log(index);
+            setTimeout(function() {
+                child.$el.toggleClass('fly-out--left');
+            }, (index * 50) + 100);
         }
     });
 

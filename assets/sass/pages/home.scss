@@ -44,12 +44,30 @@ Home view elements
     background-size: cover;
     height: 100vh;
     min-height: 300px;
+    overflow: hidden;
     position: absolute;
     top: 0;
     transition: top 200ms;
     width: 100vw;
     &.show-about {
         top: -50vh;
+    }
+}
+.search-results {
+    .items-container {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        top: 0;
+        width: 45vw;
+    }
+    .item-wrapper {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        transition: all 200ms;
     }
 }
 .about-btn {

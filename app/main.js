@@ -11,7 +11,7 @@ define(function(require) {
     var Backbone = require('backbone');
     var WebApp   = require('app');
     var Example  = require('router');
-    var Homepage = require('views/home');
+    var Homepage = require('views/Home');
 
     WebApp.on('before:start', function() {
         WebApp.info('Starting...');
