@@ -30,6 +30,7 @@ define(function(require, exports, module) {
             main: '#main',
             searchInput: '.navy-search > input',
             submitButton: '.submit-btn',
+            results: '.search-results',
             aboutButton: '.about-btn'
         },
         events: {
@@ -61,6 +62,7 @@ define(function(require, exports, module) {
                 view.getSearchResults(ui.searchInput.val())
                     .then(function(items) {
                         view.showChildView('results', new Results({collection: items}));
+                        ui.results.css('display', 'block');
                         ui.submitButton
                             .hide()
                             .removeClass('processing');

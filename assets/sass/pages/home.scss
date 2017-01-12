@@ -54,6 +54,7 @@ Home view elements
     }
 }
 .search-results {
+    display: none;
     .items-container {
         height: 100vh;
         overflow-x: hidden;
