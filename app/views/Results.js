@@ -36,7 +36,6 @@ define(function(require, exports, module) {
         },
         onChildviewAttach: function(child) {
             var index = child.model.get('index');
-            console.log(index);
             setTimeout(function() {
                 child.$el.toggleClass('fly-out--left');
             }, (index * 50) + 100);
