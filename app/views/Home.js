@@ -75,22 +75,22 @@ define(function(require, exports, module) {
                 ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
                 var searchString = ui.searchInput.val();
+                var details = new DetailsView();
                 view.getSearchResults(searchString)
                     .then(function(items) {
-                        var details = new DetailsView();
+                        ui.submitButton
+                            .css('display', 'none')
+                            .removeClass('processing');
                         details.model.set({
                             searchString: searchString,
                             total: items.length
                         });
-                        var results = new Results({collection: items});
+                        return new Results({collection: items});
+                    })
+                    .then(function(results) {
+                        ui.searchResults.css('display', 'block');
                         view.showChildView('itemsDetails', details);
                         view.showChildView('itemsContainer', results);
-                        ui.searchResults.css('display', 'block');
-                        ui.submitButton
-                            .hide()
-                            .removeClass('processing');
-                    })
-                    .then(function() {
                         ps.initialize(view.getRegion('itemsContainer').el);
                     })
                     .catch(function(err) {
