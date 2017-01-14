@@ -11,10 +11,23 @@ define(function(require, exports, module) {
     var JST     = require('templates');
     var Message = require('models/Message');
 
+    var API_ROOT = 'https://www.navysearch.org/api/v1.0/message/';
+
     var ChildView = Mn.View.extend({
         className: 'animated fly-out--left full-width item-wrapper',
         model: new Message.Model(),
-        template: JST.item
+        template: JST.item,
+        events: {
+            click: 'onClick'
+        },
+        onRender: function() {
+            var view = this;
+            var model = view.model;
+            view.$el.attr('data-type', model.get('type'));
+        },
+        onClick: function() {
+            window.open(API_ROOT + this.model.get('id'));
+        }
     });
     /**
      * @name ResultsCollectionView

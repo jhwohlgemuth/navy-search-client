@@ -18,6 +18,16 @@ define(function(require, exports, module) {
 
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
 
+    var DetailsView = Mn.View.extend({
+        className: 'details',
+        template: JST.details,
+        model: new Data.Model(),
+        events: {
+            'input input': 'onInput'
+        },
+        onInput: function() {}
+    });
+
     /**
      * @name HomeView
      * @description Home view
@@ -40,6 +50,10 @@ define(function(require, exports, module) {
             'click .submit-btn': 'onClickSubmit'
         },
         regions: {
+            itemsDetails: {
+                el: '.search-results > .details',
+                replaceElement: true
+            },
             itemsContainer: '.search-results > .items-container'
         },
         initialize: function() {
@@ -60,9 +74,17 @@ define(function(require, exports, module) {
                 ui.searchInput.toggleClass('fly-out--right').blur();
                 ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
-                view.getSearchResults(ui.searchInput.val())
+                var searchString = ui.searchInput.val();
+                view.getSearchResults(searchString)
                     .then(function(items) {
-                        view.showChildView('itemsContainer', new Results({collection: items}));
+                        var details = new DetailsView();
+                        details.model.set({
+                            searchString: searchString,
+                            total: items.length
+                        });
+                        var results = new Results({collection: items});
+                        view.showChildView('itemsDetails', details);
+                        view.showChildView('itemsContainer', results);
                         ui.searchResults.css('display', 'block');
                         ui.submitButton
                             .hide()
