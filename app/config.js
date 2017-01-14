@@ -19,6 +19,7 @@ requirejs.config({
         'backbone':            '../node_modules/backbone/backbone',
         'backbone.radio':      '../node_modules/backbone.radio/build/backbone.radio',
         'backbone.marionette': '../node_modules/backbone.marionette/lib/backbone.marionette',
+        'perfect-scrollbar':   '../node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.min',
         //Helpers and extensions
         'handlebars.helpers': './helpers/handlebars.helpers',
         'jquery.extensions':  './helpers/jquery.extensions',

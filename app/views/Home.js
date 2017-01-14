@@ -9,6 +9,7 @@ define(function(require, exports, module) {
 
     var $       = require('jquery');
     var _       = require('lodash');
+    var ps      = require('perfect-scrollbar');
     var Mn      = require('backbone.marionette');
     var JST     = require('templates');
     var WebApp  = require('app').model;
@@ -27,11 +28,11 @@ define(function(require, exports, module) {
         template: JST.home,
         model: new Data.Model(),
         ui: {
-            main: '#main',
-            searchInput: '.navy-search > input',
-            submitButton: '.submit-btn',
-            results: '.search-results',
-            aboutButton: '.about-btn'
+            main:          '#main',
+            searchInput:   '.navy-search > input',
+            submitButton:  '.submit-btn',
+            searchResults: '.search-results',
+            aboutButton:   '.about-btn'
         },
         events: {
             'click .about-btn': 'onClickAbout',
@@ -39,7 +40,7 @@ define(function(require, exports, module) {
             'click .submit-btn': 'onClickSubmit'
         },
         regions: {
-            results: '.search-results > .items-container'
+            itemsContainer: '.search-results > .items-container'
         },
         initialize: function() {
             var view = this;
@@ -61,11 +62,14 @@ define(function(require, exports, module) {
                 ui.aboutButton.toggle();
                 view.getSearchResults(ui.searchInput.val())
                     .then(function(items) {
-                        view.showChildView('results', new Results({collection: items}));
-                        ui.results.css('display', 'block');
+                        view.showChildView('itemsContainer', new Results({collection: items}));
+                        ui.searchResults.css('display', 'block');
                         ui.submitButton
                             .hide()
                             .removeClass('processing');
+                    })
+                    .then(function() {
+                        ps.initialize(view.getRegion('itemsContainer').el);
                     })
                     .catch(function(err) {
                         WebApp.error(err);
