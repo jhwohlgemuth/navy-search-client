@@ -19,11 +19,17 @@ define(function(require, exports, module) {
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
 
     var DetailsView = Mn.View.extend({
-        className: 'details',
+        className: 'animated fly-out--top details',
         template: JST.details,
         model: new Data.Model(),
         events: {
             'input input': 'onInput'
+        },
+        onAttach: function() {
+            var $details = this.$el;
+            _.defer(function() {
+                $details.toggleClass('fly-out--top');
+            });
         },
         onInput: function() {}
     });

@@ -40,7 +40,7 @@ Home view elements
     }
 }
 #main {
-    background: url("assets/images/sonic_boom.gif") no-repeat center center fixed;
+    background: $bg-image no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     min-height: 300px;
@@ -55,6 +55,8 @@ Home view elements
 }
 .search-results {
     display: none;
+    left: 50%;
+    margin-left: -30vw;
     position: absolute;
     top: 0;
     .details {
@@ -75,7 +77,7 @@ Home view elements
         div {
             background-color: $navy_blue;
             color: $navy_gold;
-            font-size: 21px;
+            font-size: 22px;
             line-height: 43px;
         }
     }
@@ -85,7 +87,7 @@ Home view elements
         overflow: hidden;
         position: relative;
         top: 0;
-        width: 45vw;
+        width: 60vw;
     }
     .item-wrapper {
         background-color: rgba(255, 255, 255, 0.9);
@@ -141,14 +143,12 @@ Home view elements
     position: relative;
 }
 @media (max-width: 1000px) {
-    .search-results .items-container {
-        // min-width: 100%;
-        width: 85vw;
-    }
-}
-@media (max-width: 500px) {
-    .search-results .items-container {
-        min-width: 100%;
-        width: 100vw;
+    .search-results {
+        left: 0;
+        margin-left: 0;
+        .items-container {
+            min-width: 100%;
+            width: 100vw;
+        }
     }
 }

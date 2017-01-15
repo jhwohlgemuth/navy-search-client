@@ -17,6 +17,24 @@ $marine_gold: #CC9900;
 $js_gray: #333333;
 
 /*---
+title:   Images
+section: Common
+---
+
+Images
+
+*/
+
+$listing-carrier: "assets/images/listing_carrier.jpeg";//George W. Bush
+$eisenhower: "assets/images/eisenhower.jpeg";
+$navy-at-night: "assets/images/navy_at_night.jpeg";//Kyle's favorite
+$missile-launch: "assets/images/missile_launch.jpeg";
+$aircraft_sunset: "assets/images/aircraft_sunset.png";
+$sonic_boom: "assets/images/sonic_boom.gif";
+
+$bg-image: url($listing-carrier);
+
+/*---
 title:   Utility
 section: Common
 ---
@@ -46,6 +64,9 @@ Utility styles that are reused frequently and provide human-readable classes.
 .animated {
     transition: all 100ms ease-in-out;
     transform: translateZ(0px);
+}
+.fly-out--top {
+    margin-top: -110vh;
 }
 .fly-out--left {
     margin-left: -110vw;
