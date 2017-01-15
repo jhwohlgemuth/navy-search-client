@@ -17,6 +17,7 @@ define(function(require, exports, module) {
     var Results = require('views/Results');
 
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
+    var MAX_RESULTS = 400;
 
     var DetailsView = Mn.View.extend({
         className: 'details',
@@ -85,7 +86,10 @@ define(function(require, exports, module) {
                             searchString: searchString,
                             total: items.length
                         });
-                        return new Results({collection: items});
+                        var collection = _(items)
+                            .map(function(item) {return _.omit(item, 'text');})
+                            .take(MAX_RESULTS).value();
+                        return new Results({collection: collection});
                     })
                     .then(function(results) {
                         ui.searchResults.css('display', 'block');
