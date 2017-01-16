@@ -63,6 +63,9 @@ define(function(require, exports, module) {
             },
             itemsContainer: '.search-results > .items-container'
         },
+        behaviors: [
+            require('plugins/ie.shim.behavior')
+        ],
         initialize: function() {
             var view = this;
             var RETURN_KEY_CODE = 13;
@@ -78,7 +81,9 @@ define(function(require, exports, module) {
             var view = this;
             var ui = view.ui;
             if (!ui.submitButton.hasClass('processing')) {
-                ui.searchInput.toggleClass('fly-out--right').blur();
+                ui.searchInput
+                    .toggleClass('fly-out--right')
+                    .attr('disabled', true);
                 ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
                 var searchString = ui.searchInput.val();

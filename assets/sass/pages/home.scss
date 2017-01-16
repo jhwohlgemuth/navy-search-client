@@ -31,7 +31,8 @@ Home view elements
         padding: 0;
         width: 12rem;
     }
-    input:required + .control-wrapper > .submit-btn {
+    input:required + .control-wrapper > .submit-btn,
+    input:required.ie-shim-input + .control-wrapper > .submit-btn  {
         margin: 20px calc( 50% - 6rem );
         transform: translateZ(0px);
     }
