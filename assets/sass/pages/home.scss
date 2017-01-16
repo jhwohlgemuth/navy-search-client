@@ -80,6 +80,21 @@ Home view elements
             color: $navy_gold;
             font-size: 22px;
             line-height: 43px;
+            .messages-found-count {
+                visibility: visible;
+            }
+        }
+    }
+    .processing.details {
+        div {
+            position: relative;
+            &:before {
+                @extend button.processing:before;
+                height: 100%;
+            }
+            .messages-found-count {
+                visibility: hidden;
+            }
         }
     }
     .items-container {

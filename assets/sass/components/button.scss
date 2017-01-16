@@ -44,7 +44,7 @@ button {
             content: ' ';
             cursor: progress;
             display: block;
-            background-image: url('assets/images/ripple.gif');
+            background-image: url($loading-animation);
             background-position: center center;
             background-repeat: no-repeat;
             background-size: contain;

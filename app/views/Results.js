@@ -7,6 +7,7 @@
 define(function(require, exports, module) {
     'use strict';
 
+    var _       = require('lodash');
     var Mn      = require('backbone.marionette');
     var JST     = require('templates');
     var Message = require('models/Message');
@@ -49,8 +50,8 @@ define(function(require, exports, module) {
         },
         onChildviewAttach: function(child) {
             var index = child.model.get('index');
-            setTimeout(function() {
-                child.$el.toggleClass('fly-out--left');
+            _.delay(function() {
+                child.$el.removeClass('fly-out--left');
             }, (index * 50) + 100);
         }
     });
