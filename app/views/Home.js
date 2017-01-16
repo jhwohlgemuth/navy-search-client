@@ -18,6 +18,7 @@ define(function(require, exports, module) {
 
     var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
     var MAX_RESULTS = 400;
+    var RETURN_KEY_CODE = 13;
 
     var DetailsView = Mn.View.extend({
         className: 'animated fly-out--top details',
@@ -27,9 +28,29 @@ define(function(require, exports, module) {
             'input input': 'onInput'
         },
         onAttach: function() {
-            var $details = this.$el;
+            var details = this;
+            var $details = details.$el;
             _.defer(function() {
                 $details.toggleClass('fly-out--top');
+            });
+        },
+        onRender: function() {
+            var details = this;
+            var $details = details.$el;
+            $details.keypress(function(e) {
+                var key = e.which || e.keyCode;
+                if (key === RETURN_KEY_CODE && (e.target.value.length > 0)) {
+                    var home = details._parent._parent;
+                    var results = home.getRegion('itemsContainer').currentView;
+                    home.getSearchResults(e.target.value).then(function(items) {
+                        results.collection.reset(items);
+                        ps.update(results.el);
+                        var $input = details.$('input');
+                        $input
+                            .focus()
+                            .setCursorPosition($input.val().length);
+                    });
+                }
             });
         },
         onInput: function() {}
@@ -54,7 +75,8 @@ define(function(require, exports, module) {
         events: {
             'click .about-btn': 'onClickAbout',
             'touchstart .about-btn': 'onClickAbout',
-            'click .submit-btn': 'onClickSubmit'
+            'click .submit-btn': 'onClickSubmit',
+            'keypress @ui.searchInput': 'onKeyPress'
         },
         regions: {
             itemsDetails: {
@@ -66,51 +88,32 @@ define(function(require, exports, module) {
         behaviors: [
             require('plugins/ie.shim.behavior')
         ],
-        initialize: function() {
+        onKeyPress: function(e) {
             var view = this;
-            var RETURN_KEY_CODE = 13;
-            $(document).keypress(function(e) {
-                var key = e.which || e.keyCode;
-                if (key === RETURN_KEY_CODE && (view.ui.searchInput.val().length > 0)) {
-                    view.triggerMethod('click:submit');
-                    $(document).off('keypress');
-                }
-            });
+            var key = e.which || e.keyCode;
+            if (key === RETURN_KEY_CODE && (view.ui.searchInput.val().length > 0)) {
+                view.triggerMethod('click:submit');
+            }
         },
         onClickSubmit: function() {
-            var view = this;
-            var ui = view.ui;
+            var home = this;
+            var ui = home.ui;
             if (!ui.submitButton.hasClass('processing')) {
                 ui.searchInput
                     .toggleClass('fly-out--right')
                     .attr('disabled', true);
                 ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
-                var searchString = ui.searchInput.val();
-                var details = new DetailsView();
-                view.getSearchResults(searchString)
-                    .then(function(items) {
-                        ui.submitButton
-                            .css('display', 'none')
-                            .removeClass('processing');
-                        details.model.set({
-                            searchString: searchString,
-                            total: items.length
-                        });
-                        var collection = _(items)
-                            .map(function(item) {return _.omit(item, 'text');})
-                            .take(MAX_RESULTS).value();
-                        return new Results({collection: collection});
-                    })
-                    .then(function(results) {
-                        ui.searchResults.css('display', 'block');
-                        view.showChildView('itemsDetails', details);
-                        view.showChildView('itemsContainer', results);
-                        ps.initialize(view.getRegion('itemsContainer').el);
-                    })
-                    .catch(function(err) {
-                        WebApp.error(err);
-                    });
+                home.details = new DetailsView();
+                home.getSearchResults(ui.searchInput.val()).then(function(items) {
+                    ui.submitButton
+                        .css('display', 'none')
+                        .removeClass('processing');
+                    ui.searchResults.css('display', 'block');
+                    home.showChildView('itemsDetails', home.details);
+                    home.showChildView('itemsContainer', new Results({collection: items}));
+                    ps.initialize(home.getRegion('itemsContainer').el);
+                });
             }
         },
         onClickAbout: function() {
@@ -119,12 +122,30 @@ define(function(require, exports, module) {
             ui.aboutButton.toggleClass('active-btn');
         },
         getSearchResults: function(str, ajaxOptions) {
+            var view = this;
             var defaults = {
                 data: {q: str},
                 dataType: 'json',
                 url: SEARCH_URL
             };
-            return $.get(_.extend(defaults, ajaxOptions));
+            return $.get(_.extend(defaults, ajaxOptions))
+                .then(function(items) {
+                    return _(items)
+                        .map(function(item) {return _.omit(item, 'text');})
+                        .take(MAX_RESULTS)
+                        .value();
+                })
+                .then(function(items) {
+                    view.details.model.set({
+                        searchString: str,
+                        total: items.length
+                    });
+                    view.details.render();
+                    return items;
+                })
+                .catch(function(err) {
+                    WebApp.error(err);
+                });
         }
     });
 
