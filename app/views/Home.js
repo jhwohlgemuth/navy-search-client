@@ -44,7 +44,7 @@ define(function(require, exports, module) {
                     var home = details._parent._parent;
                     var results = home.getRegion('itemsContainer').currentView;
                     home.getSearchResults(e.target.value).then(function(items) {
-                        results.collection.reset(items);
+                        home.showChildView('itemsContainer', new Results({collection: items}));
                         ps.update(results.el);
                         var $input = details.$('input');
                         $input

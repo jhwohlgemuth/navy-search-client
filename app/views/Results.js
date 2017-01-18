@@ -26,12 +26,6 @@ define(function(require, exports, module) {
             var model = view.model;
             view.$el.attr('data-type', model.get('type'));
         },
-        onDomRefresh: function() {
-            var view = this;
-            _.delay(function() {
-                view.$el.removeClass('fly-out--left');
-            }, (view.model.get('index') * 100) + 200);
-        },
         onClick: function() {
             window.open(API_ROOT + this.model.get('id'));
         }
@@ -49,10 +43,14 @@ define(function(require, exports, module) {
             var items = this.collection;
             if (!(items instanceof Message.Collection)) {
                 this.collection = new Message.Collection(items);
-                this.collection.each(function(model, index) {
-                    model.set('index', index);
-                });
             }
+        },
+        onDomRefresh: function() {
+            this.children.forEach(function(child, index) {
+                _.delay(function() {
+                    child.$el.removeClass('fly-out--left');
+                }, 100 + (index * 50));
+            });
         }
     });
 
