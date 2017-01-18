@@ -43,7 +43,6 @@ define(function(require, exports, module) {
                     $details.addClass('processing');
                     var home = details._parent._parent;
                     var results = home.getRegion('itemsContainer').currentView;
-                    console.log(results.collection.size());
                     home.getSearchResults(e.target.value).then(function(items) {
                         results.collection.reset(items);
                         ps.update(results.el);

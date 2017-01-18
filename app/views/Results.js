@@ -15,7 +15,7 @@ define(function(require, exports, module) {
     var API_ROOT = 'https://www.navysearch.org/api/v1.0/message/';
 
     var ChildView = Mn.View.extend({
-        className: 'animated fly-out--left full-width item-wrapper',
+        className: 'animated--200 fly-out--left full-width item-wrapper',
         model: new Message.Model(),
         template: JST.item,
         events: {
@@ -25,6 +25,12 @@ define(function(require, exports, module) {
             var view = this;
             var model = view.model;
             view.$el.attr('data-type', model.get('type'));
+        },
+        onDomRefresh: function() {
+            var view = this;
+            _.delay(function() {
+                view.$el.removeClass('fly-out--left');
+            }, (view.model.get('index') * 100) + 200);
         },
         onClick: function() {
             window.open(API_ROOT + this.model.get('id'));
@@ -47,12 +53,6 @@ define(function(require, exports, module) {
                     model.set('index', index);
                 });
             }
-        },
-        onChildviewAttach: function(child) {
-            var index = child.model.get('index');
-            _.delay(function() {
-                child.$el.removeClass('fly-out--left');
-            }, (index * 50) + 100);
         }
     });
 

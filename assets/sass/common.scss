@@ -64,7 +64,18 @@ Utility styles that are reused frequently and provide human-readable classes.
     user-select: none;
 }
 .animated {
+    @extend .animated--100;
+}
+.animated--50 {
+    transition: all 50ms ease-in-out;
+    transform: translateZ(0px);
+}
+.animated--100 {
     transition: all 100ms ease-in-out;
+    transform: translateZ(0px);
+}
+.animated--200 {
+    transition: all 200ms ease-in-out;
     transform: translateZ(0px);
 }
 .fly-out--top {
