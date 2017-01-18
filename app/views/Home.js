@@ -20,12 +20,21 @@ define(function(require, exports, module) {
     var MAX_RESULTS = 400;
     var RETURN_KEY_CODE = 13;
 
+    function createCountMessage(count) {
+        return count + ' Message' + (count !== 1 ? 's' : '') + ' Found';
+    }
+
     var DetailsView = Mn.View.extend({
         className: 'animated fly-out--top details',
         template: JST.details,
         model: new Data.Model(),
         events: {
             'focus input': 'onFocus'
+        },
+        templateContext: function() {
+            return {
+                countMessage: createCountMessage(this.model.get('total'))
+            };
         },
         onAttach: function() {
             var details = this;
