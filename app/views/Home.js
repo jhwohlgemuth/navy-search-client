@@ -51,10 +51,11 @@ define(function(require, exports, module) {
                 if (key === RETURN_KEY_CODE && (e.target.value.length > 0)) {
                     $details.addClass('processing');
                     var home = details._parent._parent;
-                    var results = home.getRegion('itemsContainer').currentView;
                     home.getSearchResults(e.target.value).then(function(items) {
                         home.showChildView('itemsContainer', new Results({collection: items}));
-                        ps.update(results.el);
+                        var results = home.getRegion('itemsContainer').el;
+                        ps.initialize(results);
+                        results.scrollTop = 0;
                         var $input = details.$('input');
                         $input
                             .focus()
