@@ -48,11 +48,7 @@ Home view elements
     overflow: hidden;
     position: absolute;
     top: 0;
-    transition: top 200ms;
     width: 100vw;
-    &.show-about {
-        top: -50vh;
-    }
 }
 .search-results {
     display: none;

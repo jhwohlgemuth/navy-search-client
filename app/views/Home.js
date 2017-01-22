@@ -128,9 +128,7 @@ define(function(require, exports, module) {
             }
         },
         onClickAbout: function() {
-            var ui = this.ui;
-            ui.main.toggleClass('show-about');
-            ui.aboutButton.toggleClass('active-btn');
+            window.open('https://github.com/jhwohlgemuth/navy-search/blob/master/README.md');
         },
         getSearchResults: function(str, ajaxOptions) {
             var view = this;
