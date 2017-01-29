@@ -54,6 +54,7 @@ define(function(require, exports, module) {
                     home.getSearchResults(e.target.value).then(function(items) {
                         home.showChildView('itemsContainer', new Results({collection: items}));
                         var results = home.getRegion('itemsContainer').el;
+                        ps.destroy(results);
                         ps.initialize(results);
                         results.scrollTop = 0;
                         var $input = details.$('input');
