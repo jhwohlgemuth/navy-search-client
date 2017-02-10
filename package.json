@@ -69,7 +69,7 @@
     "grunt-replace": "^1.0.1",
     "jasmine-core": "^2.2.0",
     "jsinspect": "^0.8.0",
-    "json-server": "*",
+    "json-server": "0.9.4",
     "karma": "^1.0.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.0.0",
