@@ -37,8 +37,7 @@ define(function(require, exports, module) {
             };
         },
         onAttach: function() {
-            var details = this;
-            var $details = details.$el;
+            var $details = this.$el;
             _.defer(function() {
                 $details.toggleClass('fly-out--top');
             });
@@ -48,21 +47,12 @@ define(function(require, exports, module) {
             var $details = details.$el;
             $details.keypress(function(e) {
                 var key = e.which || e.keyCode;
-                if (key === RETURN_KEY_CODE && (e.target.value.length > 0)) {
-                    $details.addClass('processing');
-                    var home = details._parent._parent;
-                    home.getSearchResults(e.target.value).then(function(items) {
-                        home.showChildView('itemsContainer', new Results({collection: items}));
-                        var results = home.getRegion('itemsContainer').el;
-                        ps.destroy(results);
-                        ps.initialize(results);
-                        results.scrollTop = 0;
-                        var $input = details.$('input');
-                        $input
-                            .focus()
-                            .setCursorPosition($input.val().length);
-                    });
-                    $details.off('keypress');
+                var query = e.target.value;
+                if (key === RETURN_KEY_CODE && (query.length > 0)) {
+                    $details
+                        .addClass('processing')
+                        .off('keypress');
+                    details.trigger('results:update', query);
                 }
             });
         },
@@ -118,6 +108,7 @@ define(function(require, exports, module) {
                 ui.submitButton.addClass('processing');
                 ui.aboutButton.toggle();
                 home.details = new DetailsView();
+                home.listenTo(home.details, 'results:update', home.onResultsUpdate);
                 home.getSearchResults(ui.searchInput.val()).then(function(items) {
                     ui.submitButton
                         .css('display', 'none')
@@ -131,6 +122,19 @@ define(function(require, exports, module) {
         },
         onClickAbout: function() {
             window.open('https://github.com/jhwohlgemuth/navy-search/blob/master/README.md');
+        },
+        onResultsUpdate: function(query) {
+            var home = this;
+            home.getSearchResults(query).then(function(items) {
+                home.showChildView('itemsContainer', new Results({collection: items}));
+                var results = home.getRegion('itemsContainer').el;
+                ps.destroy(results);
+                ps.initialize(results);
+                results.scrollTop = 0;
+                home.getRegion('itemsDetails').currentView.$('input')
+                    .focus()
+                    .setCursorPosition(query.length);
+            });
         },
         getSearchResults: function(str, ajaxOptions) {
             var view = this;
