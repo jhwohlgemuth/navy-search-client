@@ -29,7 +29,8 @@ define(function(require, exports, module) {
         template: JST.details,
         model: new Data.Model(),
         events: {
-            'focus input': 'onFocus'
+            'focus input': 'onFocus',
+            'blur input': 'onBlur'
         },
         templateContext: function() {
             return {
@@ -48,6 +49,7 @@ define(function(require, exports, module) {
             $details.keypress(function(e) {
                 var key = e.which || e.keyCode;
                 var query = e.target.value;
+                console.log('focus!');
                 if (key === RETURN_KEY_CODE && (query.length > 0)) {
                     $details
                         .addClass('processing')
@@ -56,7 +58,10 @@ define(function(require, exports, module) {
                 }
             });
         },
-        onInput: function() {}
+        onBlur: function() {
+            console.log('blur');
+            this.$el.off('keypress');
+        }
     });
 
     /**
