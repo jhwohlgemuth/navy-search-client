@@ -15,7 +15,7 @@ define(function(require, exports, module) {
     var API_ROOT = 'https://www.navysearch.org/api/v1.0/message/';
 
     var ChildView = Mn.View.extend({
-        className: 'animated--200 fly-out--left full-width item-wrapper',
+        className: 'animated--200 fly-out--right full-width item-wrapper',
         model: new Message.Model(),
         template: JST.item,
         events: {
@@ -48,7 +48,7 @@ define(function(require, exports, module) {
         onDomRefresh: function() {
             this.children.forEach(function(child, index) {
                 _.delay(function() {
-                    child.$el.removeClass('fly-out--left');
+                    child.$el.removeClass('fly-out--right');
                 }, 100 + (index * 50));
             });
         }
