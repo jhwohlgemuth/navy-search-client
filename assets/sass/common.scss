@@ -45,6 +45,9 @@ section: Common
 Utility styles that are reused frequently and provide human-readable classes.
 
 */
+
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
 .full-width {
     box-sizing: border-box;
     width: 100%;
@@ -76,7 +79,8 @@ Utility styles that are reused frequently and provide human-readable classes.
     transform: translateZ(0px);
 }
 .animated--200 {
-    transition: all 200ms ease-in-out;
+    // transition: all 200ms ease-in-out;
+    transition: all 200ms $easeInOutCirc;
     transform: translateZ(0px);
 }
 .fly-out--top {
