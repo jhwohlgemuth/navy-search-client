@@ -35,7 +35,7 @@
     "cssnano": "^3.9.1",
     "deamdify": "^0.3.0",
     "eslint-config-omaha-prime-grade": "^4.0.0",
-    "eslint-plugin-backbone": "^2.0.1",
+    "eslint-plugin-backbone": "^2.1.1",
     "fs-promise": "^2.0.3",
     "globby": "^6.0.0",
     "grunt": "^1.0.0",
