@@ -39,7 +39,7 @@
     "fs-promise": "^2.0.3",
     "globby": "^6.0.0",
     "grunt": "^1.0.0",
-    "grunt-a11y": "^0.1.4",
+    "grunt-a11y": "^0.1.5",
     "grunt-accessibility": "^5.0.0",
     "grunt-benchmark": "^1.0.0",
     "grunt-browserify": "^5.0.0",
