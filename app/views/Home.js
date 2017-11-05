@@ -16,12 +16,12 @@ define(function(require, exports, module) {
     var Data    = require('models/Data');
     var Results = require('views/Results');
 
-    var SEARCH_URL = '/api/' + WebApp.get('version') + '/messages/search';
+    var SEARCH_URL = `/api/${ WebApp.get('version') }/messages/search`;
     var MAX_RESULTS = 400;
     var RETURN_KEY_CODE = 13;
 
     function createCountMessage(count) {
-        return count + ' Message' + (count !== 1 ? 's' : '') + ' Found';
+        return `${count } Message${ count !== 1 ? 's' : '' } Found`;
     }
 
     var DetailsView = Mn.View.extend({
@@ -49,7 +49,6 @@ define(function(require, exports, module) {
             $details.keypress(function(e) {
                 var key = e.which || e.keyCode;
                 var query = e.target.value;
-                console.log('focus!');
                 if (key === RETURN_KEY_CODE && (query.length > 0)) {
                     $details
                         .addClass('processing')
@@ -59,7 +58,6 @@ define(function(require, exports, module) {
             });
         },
         onBlur: function() {
-            console.log('blur');
             this.$el.off('keypress');
         }
     });

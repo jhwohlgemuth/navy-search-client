@@ -7,7 +7,7 @@ requirejs.config({
     baseUrl: '',
     //urlArgs is used to cache bust.
     //development should use timestamp, production should use version
-    urlArgs: 'bust=' + (new Date()).getTime(),
+    urlArgs: `bust=${ (new Date()).getTime()}`,
     deps: ['main'],
     paths: {
         //Project Dependencies
@@ -16,7 +16,7 @@ requirejs.config({
         jquery:                '../node_modules/jquery/dist/jquery',
         lodash:                '../node_modules/lodash/lodash.min',
         bluebird:              '../node_modules/bluebird/js/browser/bluebird.min',
-        'backbone':            '../node_modules/backbone/backbone',
+        backbone:            '../node_modules/backbone/backbone',
         'backbone.radio':      '../node_modules/backbone.radio/build/backbone.radio',
         'backbone.marionette': '../node_modules/backbone.marionette/lib/backbone.marionette',
         'perfect-scrollbar':   '../node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.min',

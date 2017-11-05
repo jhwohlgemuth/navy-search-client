@@ -46,10 +46,11 @@ define(function(require, exports, module) {
             }
         },
         onDomRefresh: function() {
+            const STEP_SIZE = 50;
             this.children.forEach(function(child, index) {
                 _.delay(function() {
                     child.$el.removeClass('fly-out--right');
-                }, 100 + (index * 50));
+                }, 100 + (index * STEP_SIZE));
             });
         }
     });

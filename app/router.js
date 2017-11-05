@@ -29,7 +29,7 @@ define(function(require, exports) {
     **/
     var ExampleAppRouter = Marionette.AppRouter.extend({
         appRoutes: {
-            'foo': 'foo'
+            foo: 'foo'
         },
         controller: new RouterController()
     });
