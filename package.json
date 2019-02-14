@@ -32,7 +32,7 @@
     "browserify": "^14.3.0",
     "browserify-shim": "^3.8.14",
     "config": "^1.26.1",
-    "cssnano": "^3.9.1",
+    "cssnano": "^4.1.10",
     "deamdify": "^0.3.0",
     "eslint-config-omaha-prime-grade": "^4.0.0",
     "eslint-plugin-backbone": "^2.0.1",
