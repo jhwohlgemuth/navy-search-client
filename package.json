@@ -78,7 +78,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
     "karma-spec-reporter": "0.0.31",
-    "load-grunt-tasks": "^3.1.0",
+    "load-grunt-tasks": "^5.0.0",
     "mdcss": "^1.5.2",
     "mdcss-theme-github": "^2.4.2",
     "phantomjs-prebuilt": "^2.1.3",
