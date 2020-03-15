@@ -59,7 +59,7 @@
     "grunt-htmlhint-plus": "^0.4.3",
     "grunt-jsdoc": "^2.1.0",
     "grunt-jsinspect": "^2.0.0",
-    "grunt-jsonlint": "^1.0.4",
+    "grunt-jsonlint": "^2.1.2",
     "grunt-karma": "^2.0.0",
     "grunt-karma-coveralls": "^2.5.4",
     "grunt-open": "^0.2.3",
