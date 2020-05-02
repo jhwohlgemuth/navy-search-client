@@ -18,12 +18,13 @@
     "backbone.marionette": "^3.3.1",
     "backbone.radio": "^2.0.0",
     "bluebird": "^3.5.0",
-    "handlebars": "^4.0.8",
-    "jquery": "^3.2.1",
+    "handlebars": "^4.6.0",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.4",
     "perfect-scrollbar": "^0.7.0",
     "requirejs": "^2.3.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "aliasify": "^2.1.0",
@@ -101,7 +102,9 @@
     "prestart": "nohup npm run rest-api &",
     "start": "npm run symlink && grunt serve",
     "predeploy": "npm run build",
-    "deploy": "cp -a dist/. ../navy-search/web/client/."
+    "deploy": "cp -a dist/. ../navy-search/web/client/.",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "browserify": {
     "transform": [
@@ -121,5 +124,6 @@
       "controllers/(\\w+)": "././app/controllers/$1",
       "plugins/(\\w+)": "././app/plugins/$1"
     }
-  }
+  },
+  "snyk": true
 }
