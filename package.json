@@ -70,7 +70,7 @@
     "jasmine-core": "^2.6.1",
     "jsinspect": "^0.12.4",
     "json-server": "^0.10.1",
-    "karma": "^1.7.0",
+    "karma": "^5.0.7",
     "karma-chrome-launcher": "^2.1.1",
     "karma-coverage": "^1.0.0",
     "karma-firefox-launcher": "^1.0.1",
